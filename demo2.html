@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="email=no,telephone=no,address=no">
+<title>=^.^=</title>
+<style>
+body {
+	font-family: sans-serif;
+	background: url( "./img/bg_001.svg" );
+}
+</style>
+<!--
+	Safari 15.3 以前向けに、dialog をポリフィル（有効化）するには、以下の 3 ステップで実行します。
+	なお、ポリフィルでは背面のCSS指定で、`.myModal::backdrop` は使えません。
+	かわりに `.myModal + .backdrop`のように「+ .backdrop」を併用してください。
+-->
+
+<!-- 1. ポリフィル CSS を読み込む -->
+<link rel="stylesheet" type="text/css" href="dist/dialog-polyfill.css" />
+</head>
+<body>
+
+<dialog id="my-modal-0">
+	<p>
+		簡易モーダル<br>
+		<a href="#">モーダル内のリンク</a>
+	</p>
+	<button type="button" onclick="document.querySelector( '#my-modal-0' ).close();">
+		閉じる
+	</button>
+</dialog>
+
+<button type="button" onclick="document.querySelector( '#my-modal-0' ).showModal();">
+	開く
+</button>
+
+<!-- 2. ポリフィルライブラリを読み込む -->
+<script src="https://unpkg.com/dialog-polyfill@0.5.6/dist/dialog-polyfill.js"></script>
+<script>
+// 3. ポリフィルを有効化
+document.querySelectorAll( 'dialog' ).forEach( ( $dialog ) => dialogPolyfill.registerDialog( $dialog ) );
+</script>
+
+</body>
+</html>

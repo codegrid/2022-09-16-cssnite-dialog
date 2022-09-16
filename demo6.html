@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="email=no,telephone=no,address=no">
+<title>=^.^=</title>
+<style>
+body {
+	font-family: sans-serif;
+	background: url( "./img/bg_001.svg" );
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.myModal {
+	box-sizing: border-box;
+	width: calc( 100vw - 32px );
+	max-width: 640px;
+	padding: 16px;
+	border: 8px solid #1cb5e0;
+	border-radius: 16px;
+}
+
+.myModal::backdrop {
+	opacity: .5;
+	background: linear-gradient( #1cb5e0, #000046 );
+}
+</style>
+</head>
+<body>
+
+<dialog class="myModal" id="my-modal-0">
+	<p>簡易モーダル</p>
+	<button type="button" onclick="document.querySelector( '#my-modal-0' ).close();">
+		閉じる
+	</button>
+</dialog>
+
+<button type="button" onclick="showModal( 'my-modal-0' );">
+	開く
+</button>
+
+
+<div style="line-height: 100px;">
+	スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>スクロール用余白<br>
+</div>
+
+
+<script src="https://unpkg.com/no-scroll@2.1.1/index.js"></script>
+<script>
+const showModal = ( id ) => {
+
+	const $modal = document.getElementById( id );
+	$modal.showModal();
+	noScroll.on(); // ページ本体のスクロールを抑止する
+
+	$modal.addEventListener( 'cancel', onClose );
+	$modal.addEventListener( 'close', onClose );
+
+}
+
+const onClose = ( event ) => {
+
+	noScroll.off(); // ページ本体のスクロール抑止解除
+
+	const $modal = event.target;
+	$modal.removeEventListener( 'cancel', onClose );
+	$modal.removeEventListener( 'close', onClose );
+
+}
+
+</script>
+
+</body>
+</html>

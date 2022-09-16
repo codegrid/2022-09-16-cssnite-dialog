@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="email=no,telephone=no,address=no">
+<title>=^.^=</title>
+<style>
+body {
+	font-family: sans-serif;
+	background: url( "./img/bg_001.svg" );
+}
+</style>
+</head>
+<body>
+
+<dialog id="my-modal-0">
+	<p>
+		簡易モーダル<br>
+		<a href="#">モーダル内のリンク</a>
+	</p>
+	<button type="button" onclick="document.querySelector( '#my-modal-0' ).close();">
+		閉じる
+	</button>
+</dialog>
+
+<button type="button" onclick="document.querySelector( '#my-modal-0' ).showModal();">
+	開く
+</button>
+
+
+<br>
+<a href="#">モーダル外のリンク</a><br>
+<button>モーダル外のボタン</button><br>
+<input placeholder="モーダル外の入力"><br>
+
+</body>
+</html>

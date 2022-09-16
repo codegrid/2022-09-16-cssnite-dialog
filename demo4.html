@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="email=no,telephone=no,address=no">
+<title>=^.^=</title>
+<style>
+body {
+	font-family: sans-serif;
+	background: url( "./img/bg_001.svg" );
+}
+
+.modal {
+	box-sizing: border-box;
+	width: calc( 100% - 40px );
+	max-width: calc( 600px - 40px );
+	border-width: 42px;
+	padding: 0;
+	overflow: visible; /* デフォルトでは、dialog 要素からはみ出ると切れてしまう。visibleに戻す [*1] */
+	border-image: url( './img/bg_002.png' ) 42 round;
+	background: transparent;
+}
+
+.modal[open] {
+	display: flex;
+}
+
+.modal::backdrop {
+	opacity: .8;
+	background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(235,131,130,1) 0%, rgba(235,131,130,0.75) 38.6%, rgba(211,177,125,0.52) 72.1%, rgba(211,177,125,0.24) 94.7% );
+}
+
+.modal__inner {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 20px;
+	overflow: auto; /* [*1] でのはみ出し制御は、インナー div で対応する */
+	background: #e2a67d;
+}
+
+.modal::before {
+	content: '';
+	position: absolute;
+	top: -42px;
+	left: -42px;
+	right: -42px;
+	bottom: -42px;
+	display: block;
+	pointer-events: none;
+	background:
+		url( "./img/bg_003.png" ) 50% 0 no-repeat,
+		url( "./img/bg_004.png" ) 100% 50% no-repeat,
+		url( "./img/bg_003.png" ) 50% 100% no-repeat,
+		url( "./img/bg_004.png" ) 0 50% no-repeat;
+}
+
+.modal__close {
+	position: absolute;
+	top: -64px;
+	right: -64px;
+	width: 64px;
+	height: 64px;
+	border: 0;
+	background: url( "./img/bg_005.png" ) 0 0 / 100% 100%;
+}
+</style>
+</head>
+<body>
+
+<dialog class="myModal" id="my-modal-0">
+	<button
+		class="modal__close"
+		type="button"
+		aria-label="閉じる"
+		onclick="document.querySelector( '#my-modal-0' ).close();"
+	></button>
+	<div class="modal__inner">
+		<p>簡易モーダル</p>
+		簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル
+		簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル
+		簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル
+		簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル
+		簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル簡易モーダル
+	</div>
+</dialog>
+
+<button type="button" onclick="document.querySelector( '#my-modal-0' ).showModal();">
+	開く
+</button>
+
+</body>
+</html>
